@@ -1,40 +1,58 @@
-# Copper Kettle Coffee Roasters
+# ISM3232 Midterm: Copper Kettle Coffee Roasters
 
-ISM3232 Midterm Project
+**Name:** Jackson Williams  
+**Version:** ZETA  
+**Date:** October 24, 2026
 
-This program calculates coffee bean shipment costs for different customers. It includes bulk discounts, shipping fees, prepayment requirements, and pallet requirements.
+## What This Program Does
 
-The program also prints a shipment report showing each customer's total and a summary of all shipments.
+This program calculates coffee bean shipment costs for different customers. It figures out discounts, shipping costs, and whether an order needs prepayment or a pallet. It also prints a report showing each customer's shipment and a summary of all the orders.
 
-## Files
+## Business Rules
 
-- business_rules.py - Calculates prices, discounts, and shipment requirements.
-- main.py - Runs the program and prints the report.
-- tests/test_business_rules.py - Tests the business functions.
-- commands.md - Shows the commands I used to build and check the project.
-- requirements.txt - Lists the Python packages used.
+1. The cost of the coffee beans is calculated by multiplying the price per bag by the number of bags.
+2. Customers receive bulk discounts depending on how many bags they order. Partners can receive an additional discount.
+3. Shipping costs are added to smaller orders, while orders that meet the free-shipping requirement do not pay the shipping fee.
+4. Orders totaling $1,500 or more require prepayment.
+5. Orders need a pallet if they have more than 60 bags or their total is over $700.
+6. The program calculates the total value of all shipments and identifies the customer with the largest shipment.
 
 ## How to Run
 
-Activate the virtual environment:
+Open the project folder in your terminal and run these commands:
 
-    source .venv/bin/activate
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python3 main.py
+```
 
-Run the program:
+This runs the program and displays the shipment report.
 
-    python3 main.py
+## How to Test
 
-Run the tests:
+Run these commands in the terminal:
 
-    pytest -v
+```bash
+ruff check .
+ruff format --check .
+pytest -v
+```
 
-Check the code:
+I wrote 29 automated tests to check the business functions, including different order amounts and boundary values. All 29 tests passed during testing.
 
-    ruff check .
-    ruff format --check .
+## Files in This Repository
 
-## Testing
+- `business_rules.py` - Contains the calculations and business rules.
+- `main.py` - Runs the program and prints the shipment report.
+- `tests/test_business_rules.py` - Contains the 29 automated tests.
+- `tests/__init__.py` - Marks the tests folder as a Python package.
+- `requirements.txt` - Lists the packages needed for the project.
+- `.gitignore` - Keeps unnecessary files out of Git.
+- `commands.md` - Documents the terminal commands and their outputs.
+- `README.md` - Explains the project and how to run it.
 
-I created 29 tests to check my business functions, including different prices, discounts, and boundary values.
+## AI Use Statement
 
-All 29 tests passed.
+I did not use AI on this exam
