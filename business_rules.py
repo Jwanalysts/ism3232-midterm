@@ -48,3 +48,13 @@ def calculate_shipment_total(
         return discounted_cost + SHIPPING_FEE
 
     return discounted_cost
+
+
+def requires_prepayment(total: float) -> bool:
+    """Return True if the shipment requires prepayment."""
+    return total >= PREPAYMENT_THRESHOLD
+
+
+def needs_pallet(bags: int, total: float) -> bool:
+    """Return True if the shipment requires a pallet."""
+    return bags > PALLET_BAG_THRESHOLD and total > PALLET_TOTAL_THRESHOLD
